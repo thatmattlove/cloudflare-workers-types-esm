@@ -57,3 +57,4 @@ jobs:
           labels: auto
           base: main
           branch: 'auto-update-${{ steps.build.outputs.version }}'
+          title: 'Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}'

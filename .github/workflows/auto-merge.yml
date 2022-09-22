@@ -3,6 +3,7 @@ name: Auto Merge
 on:
   pull_request:
     types: [opened]
+    branches: [main]
 
 jobs:
   automerge:
