@@ -55,4 +55,5 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           labels: auto
+          base: main
           branch: 'auto-update-${{ steps.build.outputs.version }}'
