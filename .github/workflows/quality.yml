@@ -1,0 +1,30 @@
+name: Quality
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: Quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: supercharge/redis-github-action@1.4.0
+        with:
+          redis-version: 6
+
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+          run_install: true
+
+      - run: pnpm run format
+
+      - run: pnpm run typecheck
+
+      - run: pnpm run lint
+
+      - run: pnpm run test
