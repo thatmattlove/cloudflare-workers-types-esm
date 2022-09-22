@@ -2,8 +2,7 @@ name: Quality
 on: [push, pull_request]
 
 jobs:
-  tests:
-    name: Quality
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: supercharge/redis-github-action@1.4.0
