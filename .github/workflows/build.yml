@@ -35,9 +35,11 @@ jobs:
 
       - if: "steps.build.outputs.complete == 'true'"
         name: 'Create new branch and commit changes'
+        env:
+          BRANCH_NAME: 'auto-update-${{ steps.build.outputs.version }}-${{ github.run_id }}${{ github.run_number }}${{ github.run_attempt }}'
         run: |
           echo "version=${{ steps.build.outputs.version }}"
-          git checkout -b "auto-update-${{ steps.build.outputs.version }}"
+          git checkout -b "${{ env.BRANCH_NAME }}"
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
@@ -56,5 +58,5 @@ jobs:
         with:
           labels: auto
           base: main
-          branch: 'auto-update-${{ steps.build.outputs.version }}'
+          branch: '${{ env.BRANCH_NAME }}'
           title: 'Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}'
