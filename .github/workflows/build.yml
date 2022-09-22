@@ -27,8 +27,13 @@ jobs:
 
       - if: "steps.build.outputs.version == 'no-update'"
         run: |
+          echo "version=${{ steps.build.outputs.version }}"
           echo "No Update Needed"
           exit 0
+
+      - if: "steps.build.outputs.complete == 'true'"
+        run: |
+          echo "version=${{ steps.build.outputs.version }}"
 
       - if: "steps.build.outputs.complete == 'true'"
         uses: EndBug/add-and-commit@v9
@@ -41,5 +46,3 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           labels: auto
-
-      - run: exit 1
