@@ -1,3 +1,10 @@
 import { run } from "./src";
 
-run();
+async function main() {
+  const result = await run();
+  for (const line of result) {
+    console.log(line);
+  }
+}
+
+main();

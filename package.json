@@ -10,7 +10,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "ts-node-esm ./build.ts",
+    "build": "NODE_OPTIONS=\"--no-warnings\" ts-node-esm ./build.ts",
     "lint": "eslint --quiet src/**/*",
     "format": "prettier --loglevel warn -c .",
     "format:fix": "prettier --loglevel warn -w .",

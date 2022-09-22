@@ -48,7 +48,7 @@ async function defaultOutFile(): Promise<string> {
   return outFile;
 }
 
-export async function run(options: FlowOptions = {}) {
+export async function run(options: FlowOptions = {}): Promise<string[]> {
   let { outFile, module: module_ = false, ...parseOptions } = options;
   if (typeof outFile === "undefined") {
     outFile = await defaultOutFile();
@@ -57,12 +57,11 @@ export async function run(options: FlowOptions = {}) {
   const shouldUpdate = await needsUpdate(latestVersion);
 
   if (!shouldUpdate) {
-    console.log("::set-output name=version::no-update");
-    return;
+    return ["::set-output name=complete::true", "::set-output name=version::no-update"];
   }
 
   const typesFile = await collect();
   await parse(typesFile, outFile, { module: module_, ...parseOptions });
   await updateVersion(latestVersion!);
-  console.log(`::set-output name=version::${latestVersion!}`);
+  return ["::set-output name=complete::true", `::set-output name=version::${latestVersion!}`];
 }
