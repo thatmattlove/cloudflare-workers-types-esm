@@ -37,13 +37,15 @@ jobs:
         run: |
           echo "version=${{ steps.build.outputs.version }}"
           git checkout -b "auto-update-${{ steps.build.outputs.version }}"
+          git add .
+          git commit -m "Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}"
 
-      - if: "steps.build.outputs.complete == 'true'"
-        uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}
-          branch: 'auto-update-${{ steps.build.outputs.version }}'
+      # - if: "steps.build.outputs.complete == 'true'"
+      #   uses: EndBug/add-and-commit@v9
+      #   with:
+      #     default_author: github_actions
+      #     message: Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}
+      #     branch: 'auto-update-${{ steps.build.outputs.version }}'
 
       - if: "steps.build.outputs.complete == 'true'"
         name: Create Pull Request
