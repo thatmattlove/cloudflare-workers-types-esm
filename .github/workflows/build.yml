@@ -36,7 +36,7 @@ jobs:
       - if: "steps.build.outputs.complete == 'true'"
         name: 'Set Branch Name'
         run: |
-          echo 'BRANCH_NAME="auto-update-${{ steps.build.outputs.version }}-${{ github.run_id }}${{ github.run_number }}${{ github.run_attempt }}"' >> $GITHUB_ENV
+          echo 'BRANCH_NAME=auto-update-${{ steps.build.outputs.version }}-${{ github.run_id }}${{ github.run_number }}${{ github.run_attempt }}' >> $GITHUB_ENV
           echo "version=${{ steps.build.outputs.version }}"
 
       - if: "steps.build.outputs.complete == 'true'"
