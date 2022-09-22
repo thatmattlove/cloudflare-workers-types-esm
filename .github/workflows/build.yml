@@ -34,9 +34,12 @@ jobs:
           exit 0
 
       - if: "steps.build.outputs.complete == 'true'"
+        name: 'Create new branch and commit changes'
         run: |
           echo "version=${{ steps.build.outputs.version }}"
           git checkout -b "auto-update-${{ steps.build.outputs.version }}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit -m "Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}"
 
