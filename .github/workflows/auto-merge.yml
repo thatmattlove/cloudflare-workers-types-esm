@@ -1,9 +1,6 @@
 name: Auto Merge
 
-on:
-  pull_request:
-    types: [opened]
-    branches: [main]
+on: [pull_request]
 
 jobs:
   automerge:
