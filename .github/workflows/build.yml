@@ -44,6 +44,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
           git commit -m "Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}"
+          git checkout main
 
       # - if: "steps.build.outputs.complete == 'true'"
       #   uses: EndBug/add-and-commit@v9
