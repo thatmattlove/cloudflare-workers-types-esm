@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { needsUpdate } from "./needs-update";
 import { latestRelease } from "./latest-release";
 import { collect } from "./collect";
@@ -12,6 +13,8 @@ import type { ParseOptions } from "./parse";
 interface FlowOptions extends ParseOptions {
   outFile?: PathLike;
 }
+
+const __filename = fileURLToPath(import.meta.url);
 
 async function exists(toCheck: PathLike): Promise<boolean> {
   try {
@@ -31,7 +34,6 @@ async function defaultOutFile(): Promise<string> {
         // src
         path.dirname(
           // This file
-          // eslint-disable-next-line unicorn/prefer-module
           __filename,
         ),
       ),

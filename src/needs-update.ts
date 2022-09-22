@@ -1,5 +1,5 @@
 import { compareVersions } from "compare-versions";
-import _package from "../package.json";
+import _package from "../package.json" assert { type: "json" };
 
 import type { PackageJson } from "type-fest";
 

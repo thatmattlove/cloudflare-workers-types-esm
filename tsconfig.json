@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
+    "module": "ESNext",
     "rootDir": ".",
     "outDir": "dist",
     "lib": ["ES2022", "dom"],
@@ -19,7 +19,8 @@
   },
   "ts-node": {
     "transpileOnly": true,
-    "files": true
+    "files": true,
+    "experimentalSpecifierResolution": "node"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts", "jest.config.ts", "build.ts"]

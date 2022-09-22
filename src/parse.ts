@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import * as ts from "typescript";
+import ts from "typescript";
 
 export interface ParseOptions {
   module?: boolean | string;
