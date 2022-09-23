@@ -57,9 +57,18 @@ jobs:
       #     branch: 'auto-update-${{ steps.build.outputs.version }}'
 
       - if: "steps.build.outputs.complete == 'true'"
+        name: Generate Token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.ROBOT_APP_ID }}
+          private_key: ${{ secrets.ROBOT_PRIVATE_KEY }}
+
+      - if: "steps.build.outputs.complete == 'true'"
         name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ steps.generate-token.outputs.token }}
           labels: auto
           base: main
           branch: '${{ env.BRANCH_NAME }}'
