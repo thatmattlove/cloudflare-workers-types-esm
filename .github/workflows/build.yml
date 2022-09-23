@@ -61,17 +61,16 @@ jobs:
         id: generate_token
         uses: tibdex/github-app-token@v1
         with:
-          app_id: ${{ secrets.ROBOT_APP_ID }}
-          private_key: ${{ secrets.ROBOT_APP_PRIVATE_KEY }}
+          app_id: '${{ secrets.ROBOT_APP_ID }}'
+          private_key: '${{ secrets.ROBOT_APP_PRIVATE_KEY }}'
 
       - if: "steps.build.outputs.complete == 'true'"
         name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ steps.generate-token.outputs.token }}
+          token: ${{ steps.generate_token.outputs.token }}
           labels: auto
           base: main
           branch: '${{ env.BRANCH_NAME }}'
           title: 'Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}'
           commit-message: 'Update Cloudflare Worker Types to ${{ steps.build.outputs.version }}'
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
