@@ -9,12 +9,28 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: GitHub Release
-        uses: elgohr/Github-Release-Action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate Token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
         with:
-          title: MyReleaseMessage
+          app_id: '${{ secrets.ROBOT_APP_ID }}'
+          private_key: '${{ secrets.ROBOT_APP_PRIVATE_KEY }}'
+
+      - name: Get Version
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq .version package.json -r'
+
+      - name: Github Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.value }}
+          token: ${{ steps.generate_token.outputs.token }}
+          files: |
+            LICENSE
+            package.json
+            dist/**/*
 
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
