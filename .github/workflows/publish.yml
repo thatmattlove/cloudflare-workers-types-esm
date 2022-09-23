@@ -20,6 +20,19 @@ jobs:
 
       - uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+          run_install: true
+
+      - name: Prepare
+        id: build
+        run: pnpm --silent run build
+
       - name: Get Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
