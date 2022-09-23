@@ -62,7 +62,7 @@ jobs:
         uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.ROBOT_APP_ID }}
-          private_key: ${{ secrets.ROBOT_PRIVATE_KEY }}
+          private_key: ${{ secrets.ROBOT_APP_PRIVATE_KEY }}
 
       - if: "steps.build.outputs.complete == 'true'"
         name: Create Pull Request
