@@ -18,6 +18,8 @@ jobs:
           app_id: '${{ secrets.ROBOT_APP_ID }}'
           private_key: '${{ secrets.ROBOT_APP_PRIVATE_KEY }}'
 
+      - uses: actions/checkout@v3
+
       - name: Get Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
