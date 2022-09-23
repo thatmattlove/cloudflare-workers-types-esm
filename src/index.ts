@@ -56,12 +56,13 @@ export async function run(options: FlowOptions = {}): Promise<string[]> {
   const latestVersion = await latestRelease();
   const shouldUpdate = await needsUpdate(latestVersion);
 
+  const typesFile = await collect();
+  await parse(typesFile, outFile, { module: module_, ...parseOptions });
+  await updateVersion(latestVersion!);
+
   if (!shouldUpdate) {
     return ["::set-output name=complete::true", "::set-output name=version::no-update"];
   }
 
-  const typesFile = await collect();
-  await parse(typesFile, outFile, { module: module_, ...parseOptions });
-  await updateVersion(latestVersion!);
   return ["::set-output name=complete::true", `::set-output name=version::${latestVersion!}`];
 }

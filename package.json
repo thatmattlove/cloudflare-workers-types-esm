@@ -9,6 +9,9 @@
   "files": [
     "dist/**/*"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "NODE_OPTIONS=\"--no-warnings\" ts-node-esm ./build.ts",
     "lint": "eslint --quiet src/**/*",
