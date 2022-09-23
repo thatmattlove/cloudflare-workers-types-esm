@@ -9,7 +9,7 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - if: "github.actor == 'mattlove-github-robot[bot]'"
+      - if: "github.actor != 'mattlove-github-robot[bot]'"
         name: Check User
         run: |
           echo "${{ github.actor }} not authorized to automerge"
