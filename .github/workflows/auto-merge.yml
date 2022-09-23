@@ -28,3 +28,14 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
           pull-request: ${{ github.event.inputs.pull-request }}
           required-labels: auto
+
+      - name: Get Version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+
+      - name: Tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+          custom_tag: ${{ steps.package-version.outputs.current-version }}

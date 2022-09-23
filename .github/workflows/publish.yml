@@ -25,7 +25,7 @@ jobs:
       - name: Github Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.package-version.outputs.current-version}}
+          tag_name: ${{ steps.package-version.outputs.current-version }}
           token: ${{ steps.generate_token.outputs.token }}
           files: |
             LICENSE
