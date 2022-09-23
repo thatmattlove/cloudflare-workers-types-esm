@@ -19,15 +19,13 @@ jobs:
           private_key: '${{ secrets.ROBOT_APP_PRIVATE_KEY }}'
 
       - name: Get Version
-        uses: sergeysova/jq-action@v2
-        id: version
-        with:
-          cmd: 'jq .version package.json -r'
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
 
       - name: Github Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.version.outputs.value }}
+          tag_name: ${{ steps.package-version.outputs.current-version}}
           token: ${{ steps.generate_token.outputs.token }}
           files: |
             LICENSE
