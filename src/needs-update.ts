@@ -11,6 +11,10 @@ export async function needsUpdate(latestVersion: string | undefined): Promise<bo
   if (typeof latestVersion !== "string") {
     throw new TypeError(`Failed to parse latest version. Got: '${latestVersion}'`);
   }
+  // Temporary patch for NPM issue where I accidentally published 3.16.0 without dist.
+  if (thisVersion.match(/actual/gi) !== null) {
+    return false;
+  }
   const comparison = compareVersions(latestVersion, thisVersion);
   return comparison > 0;
 }
