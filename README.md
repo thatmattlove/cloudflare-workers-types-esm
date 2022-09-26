@@ -2,19 +2,21 @@
   <h1>Cloudflare Workers Types (ESM)</h1>
   <em>your automatic band-aid for using <a href="https://github.com/cloudflare/workers-types"><code>@cloudflare/workers-types</code></a> to ship Cloudflare Workers utilities and frameworks</em>
   <p>
-  <img alt="@cloudflare/workers-types current version" src="https://img.shields.io/npm/v/@cloudflare/workers-types?color=F48120&label=%40cloudflare%2Fworkers-types&logo=cloudflare&style=for-the-badge">
-  <img alt="cloudflare-workers-types-esm current version" src="https://img.shields.io/npm/v/cloudflare-workers-types-esm?color=003682&label=cloudflare-workers-types-esm&style=for-the-badge">
+    <a href="https://github.com/cloudflare/workers-types"><img alt="@cloudflare/workers-types current version" src="https://img.shields.io/npm/v/@cloudflare/workers-types?color=F48120&label=%40cloudflare%2Fworkers-types&logo=cloudflare&style=for-the-badge"></a>
+    <a href="#"><img alt="cloudflare-workers-types-esm current version" src="https://img.shields.io/npm/v/cloudflare-workers-types-esm?color=003682&label=cloudflare-workers-types-esm&style=for-the-badge"></a>
   </p>
   <p>
-  <img alt="Quality Tests" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Quality?label=Tests&style=for-the-badge">
-  <img alt="Build" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Build?label=Build&style=for-the-badge">
+    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/quality.yml"><img alt="Quality Tests" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Quality?label=Tests&style=for-the-badge"></a>
+    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/build.yml"><img alt="Build" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Build?label=Build&style=for-the-badge"></a>
   </p>
 </div>
 
 If you're like me, you might think to yourself, "hey I could totally make this library that others and I can re-use when building Cloudflare Workers", and you get all the way to the end, go to test it, and see everybody's favorite TypeScript error:
 
 <div align="center">
-	<img src="https://res.cloudinary.com/hyperglass/image/upload/v1664200977/Screen_Shot_2022-09-26_at_10.01.26_mc7wgw.png">
+  <p>
+	  <img src="https://res.cloudinary.com/hyperglass/image/upload/v1664200977/Screen_Shot_2022-09-26_at_10.01.26_mc7wgw.png">
+  </p>
 </div>
 
 This happens because the [`@cloudflare/workers-types`](https://github.com/cloudflare/workers-types) package doesn't export its type definitions; which is why you need to reference them in your project's `tsconfig.json` file as global types.
