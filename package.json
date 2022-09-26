@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-workers-types-esm",
-  "version": "3.16.0-actual",
+  "version": "3.16.0",
   "description": "Automatically generated Cloudflare Workers Types as ES Module",
   "type": "module",
   "main": "dist/cloudflare-workers-types.ts",
