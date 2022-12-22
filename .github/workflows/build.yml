@@ -2,7 +2,7 @@ name: Build
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 5 31 2 ?' # never execute, project archived.
 
   workflow_dispatch:
 

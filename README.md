@@ -6,10 +6,14 @@
     <a href="#"><img alt="cloudflare-workers-types-esm current version" src="https://img.shields.io/npm/v/cloudflare-workers-types-esm?color=003682&label=cloudflare-workers-types-esm&style=for-the-badge"></a>
   </p>
   <p>
-    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/quality.yml"><img alt="Quality Tests" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Quality?label=Tests&style=for-the-badge"></a>
-    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/build.yml"><img alt="Build" src="https://img.shields.io/github/workflow/status/thatmattlove/cloudflare-workers-types-esm/Build?label=Build&style=for-the-badge"></a>
+    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/quality.yml"><img alt="Quality Tests" src="https://img.shields.io/github/actions/workflow/status/thatmattlove/cloudflare-workers-types-esm/quality.yaml?branch=main&label=Tests&style=for-the-badge"></a>
+    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/build.yml"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/thatmattlove/cloudflare-workers-types-esm/build.yml?branch=main&label=Build&style=for-the-badge"></a>
   </p>
 </div>
+
+---
+⚠️ After the release of [`@cloudflare/workers-types`](https://github.com/cloudflare/workers-types), this project is (thankfully) no longer necessary.
+---
 
 If you're like me, you might think to yourself, "hey I could totally make this library that others and I can re-use when building Cloudflare Workers", and you get all the way to the end, go to test it, and see everybody's favorite TypeScript error:
 
