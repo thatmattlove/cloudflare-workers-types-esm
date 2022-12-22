@@ -6,7 +6,7 @@
     <a href="#"><img alt="cloudflare-workers-types-esm current version" src="https://img.shields.io/npm/v/cloudflare-workers-types-esm?color=003682&label=cloudflare-workers-types-esm&style=for-the-badge"></a>
   </p>
   <p>
-    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/quality.yml"><img alt="Quality Tests" src="https://img.shields.io/github/actions/workflow/status/thatmattlove/cloudflare-workers-types-esm/quality.yaml?branch=main&label=Tests&style=for-the-badge"></a>
+    <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/quality.yml"><img alt="Quality Tests" src="https://img.shields.io/github/actions/workflow/status/thatmattlove/cloudflare-workers-types-esm/quality.yml?branch=main&label=Tests&style=for-the-badge"></a>
     <a href="https://github.com/thatmattlove/cloudflare-workers-types-esm/actions/workflows/build.yml"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/thatmattlove/cloudflare-workers-types-esm/build.yml?branch=main&label=Build&style=for-the-badge"></a>
   </p>
 </div>
